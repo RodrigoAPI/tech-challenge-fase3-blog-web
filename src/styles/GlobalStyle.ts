@@ -29,6 +29,10 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
   }
 
+  h1, h2, h3 {
+    color: #ffffff;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
