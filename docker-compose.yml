@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: fiap-blog-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - fiap-network
+
+  backend:
+    build:
+      context: ../tech-challenge-fase2-blog-api
+      dockerfile: Dockerfile
+    container_name: fiap-blog-api
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb://mongodb:27017/blog
+    depends_on:
+      - mongodb
+    networks:
+      - fiap-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fiap-blog-web
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - fiap-network
+
+volumes:
+  mongo_data:
+
+networks:
+  fiap-network:
+    driver: bridge
