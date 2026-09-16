@@ -1,32 +1,63 @@
-# React + TypeScript + Vite
+# FIAP Tech Challenge - Fase 3: Blog Web (Front-End)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Interface gráfica desenvolvida em React para a aplicação de blogging da pós-graduação em Engenharia de Software da FIAP.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 18** (com TypeScript)
+- **Vite** (Build tool e servidor de desenvolvimento rápido)
+- **React Router DOM v6** (Navegação SPA e rotas protegidas)
+- **Styled Components** (Estilização CSS-in-JS moderna com tema dinâmico)
+- **Axios** (Cliente HTTP para integração REST API)
+- **Lucide React** (Ícones modernos)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Arquitetura do Projeto
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```text
+src/
+├── components/         # Componentes compartilhados (Header, ProtectedRoute)
+├── context/            # Context API para Autenticação / Sessão
+├── pages/              # Páginas da aplicação (Home, PostDetail, Login, Admin, PostForm)
+├── services/           # Comunicação com a API Node.js (Axios)
+├── styles/             # GlobalStyle e tokens de tema
+├── types/              # Interfaces TypeScript do sistema
+├── App.tsx             # Roteamento principal
+└── main.tsx            # Ponto de entrada
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+---
+
+## 💻 Como Rodar o Projeto
+
+### Pré-requisitos
+
+1. **Back-end ativo**: Certifique-se de que a API Node.js da Fase 2 (`tech-challenge-fase2-blog-api`) esteja rodando na porta `3000`.
+
+### Passos
+
+1. Entre na pasta do projeto:
+   ```bash
+   cd tech-challenge-fase3-blog-web
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+
+4. Acesse no navegador: `http://localhost:5173`
+
+---
+
+## 🔒 Autenticação e Controle de Acesso
+
+- As páginas de **Leitura (Home e Post Detail)** são públicas para estudantes e docentes.
+- A **Área Docente** (`/login`) ativa o perfil autenticado via LocalStorage e Context API.
+- As rotas `/admin`, `/create` e `/edit/:id` são estritamente **protegidas**, redirecionando usuários não autenticados para a tela de login.
