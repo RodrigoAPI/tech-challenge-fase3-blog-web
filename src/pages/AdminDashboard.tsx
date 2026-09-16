@@ -6,7 +6,7 @@ import type { Post } from '../types/blog';
 import { Plus, Edit2, Trash2, ExternalLink, Loader2, FileText } from 'lucide-react';
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
 `;
@@ -122,22 +122,36 @@ const ErrorMsg = styled.div`
 
 const EmptyState = styled.div`
   width: 100%;
+  min-height: 220px;
   background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
+  border: 2px dashed var(--border-color);
   border-radius: var(--radius);
-  padding: 2.5rem 4rem;
+  padding: 2.5rem 6rem;
   text-align: center;
   color: var(--text-muted);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 2rem;
   box-sizing: border-box;
 
+  .empty-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: left;
+  }
+
   p {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: var(--text-main);
+  }
+
+  span {
+    font-size: 0.95rem;
+    color: var(--text-muted);
   }
 `;
 
@@ -193,10 +207,15 @@ export const AdminDashboard: React.FC = () => {
         </div>
       ) : posts.length === 0 ? (
         <EmptyState>
-          <FileText size={48} opacity={0.4} />
-          <p>Nenhum artigo publicado no momento.</p>
+          <div className="empty-info">
+            <FileText size={42} color="var(--primary)" opacity={0.8} />
+            <div>
+              <p>Nenhum artigo publicado no momento</p>
+              <span>Comece criando sua primeira publicação acadêmica para os estudantes.</span>
+            </div>
+          </div>
           <CreateButton to="/create">
-            <Plus size={18} /> Publicar o Primeiro Artigo
+            <Plus size={18} /> Publicar Primeiro Artigo
           </CreateButton>
         </EmptyState>
       ) : (
