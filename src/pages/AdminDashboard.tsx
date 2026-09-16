@@ -6,15 +6,16 @@ import type { Post } from '../types/blog';
 import { Plus, Edit2, Trash2, ExternalLink, Loader2, FileText } from 'lucide-react';
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
 `;
 
-const HeaderSection = styled.div`
+const HeaderSection = styled.div<{ $isCentered?: boolean }>`
   display: flex;
-  justify-content: space-between;
+  justify-content: ${(props) => (props.$isCentered ? 'center' : 'space-between')};
   align-items: center;
+  text-align: ${(props) => (props.$isCentered ? 'center' : 'left')};
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;
@@ -121,13 +122,12 @@ const ErrorMsg = styled.div`
 `;
 
 const EmptyState = styled.div`
-  width: 85%;
-  margin: 0 auto;
+  width: 100%;
   min-height: 180px;
   background-color: var(--bg-card);
   border: 2px dashed var(--border-color);
   border-radius: var(--radius);
-  padding: 2rem 3.5rem;
+  padding: 2.5rem 3rem;
   text-align: center;
   color: var(--text-muted);
   display: flex;
@@ -190,14 +190,16 @@ export const AdminDashboard: React.FC = () => {
 
   return (
     <Container>
-      <HeaderSection>
+      <HeaderSection $isCentered={posts.length === 0}>
         <div>
           <Title>Painel Administrativo</Title>
           <p style={{ color: 'var(--text-muted)' }}>Gerencie os artigos publicados no blog</p>
         </div>
-        <CreateButton to="/create">
-          <Plus size={18} /> Novo Artigo
-        </CreateButton>
+        {posts.length > 0 && (
+          <CreateButton to="/create">
+            <Plus size={18} /> Novo Artigo
+          </CreateButton>
+        )}
       </HeaderSection>
 
       {error && <ErrorMsg>{error}</ErrorMsg>}
