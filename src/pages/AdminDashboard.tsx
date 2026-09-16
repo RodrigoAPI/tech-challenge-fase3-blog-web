@@ -125,14 +125,15 @@ const EmptyState = styled.div`
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  padding: 4rem 2rem;
+  padding: 2.5rem 4rem;
   text-align: center;
   color: var(--text-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
+  gap: 1rem;
+  box-sizing: border-box;
 
   p {
     font-size: 1.15rem;
