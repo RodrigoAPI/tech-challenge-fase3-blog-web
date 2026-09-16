@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useAuth } from '../context/AuthContext';
-import { BookOpen, LogIn, LogOut, PlusSquare, LayoutDashboard } from 'lucide-react';
+import { BookOpen, LogIn, LogOut, LayoutDashboard } from 'lucide-react';
 
 const HeaderContainer = styled.header`
   background-color: rgba(30, 41, 59, 0.8);
