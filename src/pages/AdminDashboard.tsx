@@ -15,11 +15,14 @@ const HeaderSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-bottom: 2rem;
 `;
 
 const Title = styled.h1`
   font-size: 2rem;
+  color: #ffffff;
 `;
 
 const CreateButton = styled(Link)`
@@ -31,6 +34,8 @@ const CreateButton = styled(Link)`
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius);
   font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: background-color 0.2s ease;
 
   &:hover {
