@@ -6,7 +6,8 @@ import { useAuth } from '../context/AuthContext';
 import { ArrowLeft, Save, Loader2 } from 'lucide-react';
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1400px;
+  width: 95%;
   margin: 0 auto;
   padding: 2rem;
 `;
@@ -33,11 +34,13 @@ const Title = styled.h1`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
   background-color: var(--bg-card);
-  padding: 2rem;
+  padding: 3.5rem;
   border-radius: var(--radius);
   border: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box;
 `;
 
 const FormGroup = styled.div`

@@ -5,10 +5,9 @@ import { useAuth } from '../context/AuthContext';
 import { Lock, User } from 'lucide-react';
 
 const Container = styled.div`
-  max-width: 700px;
-  width: 90%;
+  max-width: 420px;
   margin: 4rem auto;
-  padding: 3rem;
+  padding: 2.5rem;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
