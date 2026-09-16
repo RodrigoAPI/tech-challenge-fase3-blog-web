@@ -6,7 +6,7 @@ import { useAuth } from '../context/AuthContext';
 import { ArrowLeft, Save, Loader2 } from 'lucide-react';
 
 const Container = styled.div`
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
 `;
