@@ -6,8 +6,8 @@ import { useAuth } from '../context/AuthContext';
 import { ArrowLeft, Save, Loader2 } from 'lucide-react';
 
 const Container = styled.div`
-  max-width: 1400px;
-  width: 95%;
+  max-width: 1100px;
+  width: 90%;
   margin: 0 auto;
   padding: 2rem;
 `;
@@ -29,14 +29,15 @@ const BackButton = styled(Link)`
 const Title = styled.h1`
   font-size: 2rem;
   margin-bottom: 2rem;
+  text-align: left;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.75rem;
   background-color: var(--bg-card);
-  padding: 3.5rem;
+  padding: 3rem;
   border-radius: var(--radius);
   border: 1px solid var(--border-color);
   width: 100%;
@@ -47,10 +48,12 @@ const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  text-align: left;
 
   label {
     font-weight: 500;
     font-size: 0.95rem;
+    text-align: left;
   }
 `;
 
