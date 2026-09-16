@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getPosts, deletePost } from '../services/api';
 import type { Post } from '../types/blog';
-import { Plus, Edit2, Trash2, ExternalLink, Loader2 } from 'lucide-react';
+import { Plus, Edit2, Trash2, ExternalLink, Loader2, FileText } from 'lucide-react';
 
 const Container = styled.div`
   max-width: 1200px;
@@ -120,6 +120,23 @@ const ErrorMsg = styled.div`
   margin-bottom: 1rem;
 `;
 
+const EmptyState = styled.div`
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  p {
+    font-size: 1.1rem;
+  }
+`;
+
 export const AdminDashboard: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -171,7 +188,13 @@ export const AdminDashboard: React.FC = () => {
           <Loader2 className="animate-spin" size={40} color="var(--primary)" />
         </div>
       ) : posts.length === 0 ? (
-        <p style={{ color: 'var(--text-muted)' }}>Nenhum post cadastrado ainda.</p>
+        <EmptyState>
+          <FileText size={48} opacity={0.4} />
+          <p>Nenhum artigo publicado no momento.</p>
+          <CreateButton to="/create">
+            <Plus size={18} /> Publicar o Primeiro Artigo
+          </CreateButton>
+        </EmptyState>
       ) : (
         <TableContainer>
           <Table>
