@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-#
+# Vídeo & Gravações
 ROTEIRO_VIDEO.md
+backend/videos
+videos

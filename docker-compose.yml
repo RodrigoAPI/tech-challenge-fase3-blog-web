@@ -13,7 +13,7 @@ services:
 
   backend:
     build:
-      context: ../tech-challenge-fase2-blog-api
+      context: ./backend
       dockerfile: Dockerfile
     container_name: fiap-blog-api
     ports:
