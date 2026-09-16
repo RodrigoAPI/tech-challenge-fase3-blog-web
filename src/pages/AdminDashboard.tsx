@@ -122,36 +122,23 @@ const ErrorMsg = styled.div`
 `;
 
 const EmptyState = styled.div`
-  width: 100%;
-  min-height: 180px;
+  max-width: 480px;
+  margin: 1.5rem auto 0;
   background-color: var(--bg-card);
-  border: 2px dashed var(--border-color);
+  border: 1px dashed var(--border-color);
   border-radius: var(--radius);
-  padding: 2.5rem 3rem;
+  padding: 2rem 1.5rem;
   text-align: center;
   color: var(--text-muted);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  justify-content: center;
+  gap: 1rem;
   box-sizing: border-box;
 
-  .empty-info {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    text-align: left;
-  }
-
   p {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-main);
-  }
-
-  span {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-muted);
   }
 `;
@@ -210,15 +197,10 @@ export const AdminDashboard: React.FC = () => {
         </div>
       ) : posts.length === 0 ? (
         <EmptyState>
-          <div className="empty-info">
-            <FileText size={42} color="var(--primary)" opacity={0.8} />
-            <div>
-              <p>Nenhum artigo publicado no momento</p>
-              <span>Comece criando sua primeira publicação acadêmica para os estudantes.</span>
-            </div>
-          </div>
+          <FileText size={36} color="var(--primary)" opacity={0.7} />
+          <p>Nenhum artigo publicado no momento.</p>
           <CreateButton to="/create">
-            <Plus size={18} /> Publicar Primeiro Artigo
+            <Plus size={18} /> Publicar Artigo
           </CreateButton>
         </EmptyState>
       ) : (
