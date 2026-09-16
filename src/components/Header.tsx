@@ -121,9 +121,6 @@ export const Header: React.FC = () => {
               <NavLink to="/admin">
                 <LayoutDashboard size={18} /> Painel
               </NavLink>
-              <NavLink to="/create">
-                <PlusSquare size={18} /> Novo Post
-              </NavLink>
               <UserBadge>Prof. {user?.username}</UserBadge>
               <LogoutButton onClick={handleLogout}>
                 <LogOut size={18} /> Sair
