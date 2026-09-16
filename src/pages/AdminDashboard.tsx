@@ -121,19 +121,22 @@ const ErrorMsg = styled.div`
 `;
 
 const EmptyState = styled.div`
+  width: 100%;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   text-align: center;
   color: var(--text-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.25rem;
 
   p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    color: var(--text-main);
   }
 `;
 
