@@ -121,12 +121,13 @@ const ErrorMsg = styled.div`
 `;
 
 const EmptyState = styled.div`
-  width: 100%;
-  min-height: 220px;
+  width: 85%;
+  margin: 0 auto;
+  min-height: 180px;
   background-color: var(--bg-card);
   border: 2px dashed var(--border-color);
   border-radius: var(--radius);
-  padding: 2.5rem 6rem;
+  padding: 2rem 3.5rem;
   text-align: center;
   color: var(--text-muted);
   display: flex;
